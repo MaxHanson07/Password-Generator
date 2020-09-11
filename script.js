@@ -17,7 +17,7 @@ generateBtn.addEventListener("click", writePassword);
 
 
 // Create prompt to get password length from user
-// var passwordLength = prompt("How many characters would you like your password to be?");
+var passwordLength = prompt("How many characters would you like your password to be?");
 
 // // Create Confirm to ask user if they want lowercase
 var hasLowercase = confirm("Do you want your password to include lowercase characters?");
@@ -56,7 +56,7 @@ console.log(numberArray);
 // Create new var that holds all chosen char (full array)
 var chosenChar = [];
 
-//Use "if statements" to save chosen characters to the chosen char array
+// Use "if statements" to save chosen characters to the chosen char array
 
 if (hasLowercase) {
   contentsToChosen(lowercaseArray);
@@ -74,11 +74,21 @@ if (hasSpecial) {
   contentsToChosen(specialArray);
 }
 
-console.log(chosenChar);
 
 // TODO Create loop to choose characters that match criteria. Choose as many characters as user's specified password length
 //  Use Math.floor(Math.random()) to get a random number
 //  Use for loop that iterates the same amount as user's specified password length
+
+// Create array to hold the characters of the user's generated password
+var finalPasswordArray = [];
+
+
+for (var j = 0; j < passwordLength; j++) {
+  var randomSelection = Math.floor(Math.random() * chosenChar.length)
+  finalPasswordArray.push(chosenChar[randomSelection]);
+}
+
+console.log(finalPasswordArray);
 
 // TODO Add validations to make sure user chose at least one type of character
 
