@@ -20,16 +20,16 @@ generateBtn.addEventListener("click", writePassword);
 // var passwordLength = prompt("How many characters would you like your password to be?");
 
 // // Create Confirm to ask user if they want lowercase
-// var hasLowercase = confim("Do you want your password to include lowercase characters?");
+var hasLowercase = confirm("Do you want your password to include lowercase characters?");
 
 // // Create Confirm to ask user if they want uppercase
-// var hasUppercase = confim("Do you want your password to include UPPERCASE characters?");
+var hasUppercase = confirm("Do you want your password to include UPPERCASE characters?");
 
 // // Create Confirm to ask user if they want number
-// var hasNumber = confim("Do you want your password to include numbers?");
+var hasNumber = confirm("Do you want your password to include numbers?");
 
-// // TODO Create Confirm to ask user if they want special char
-// var hasSpecial = confim("Do you want your password to include special characters?");
+// // Create Confirm to ask user if they want special char
+var hasSpecial = confirm("Do you want your password to include special characters?");
 
 // TODO Create password with specified criteria
 
@@ -53,9 +53,28 @@ console.log(lowercaseArray);
 console.log(specialArray);
 console.log(numberArray);
 
-// TODO Create new var that holds all chosen char (full array)
+// Create new var that holds all chosen char (full array)
+var chosenChar = [];
 
-// TODO Use "if statement" to save chosen characters to the chosen char array
+//Use "if statements" to save chosen characters to the chosen char array
+
+if (hasLowercase) {
+  contentsToChosen(lowercaseArray);
+}
+
+if (hasUppercase) {
+  contentsToChosen(uppercaseArray);
+}
+
+if (hasNumber) {
+  contentsToChosen(numberArray);
+}
+
+if (hasSpecial) {
+  contentsToChosen(specialArray);
+}
+
+console.log(chosenChar);
 
 // TODO Create loop to choose characters that match criteria. Choose as many characters as user's specified password length
 //  Use Math.floor(Math.random()) to get a random number
@@ -64,4 +83,11 @@ console.log(numberArray);
 // TODO Add validations to make sure user chose at least one type of character
 
 // TODO Add validation to the length to make sure it is between 8-128 characters
+
+// Create function that adds selected arrays into array of all chosen characters
+function contentsToChosen(selectedArray) {
+  for (var i of selectedArray) {
+    chosenChar.push(i);
+  }
+}
 
