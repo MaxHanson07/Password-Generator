@@ -72,16 +72,24 @@ function getLength() {
   var enteredNumber = false;
 
   // Ensures user entered a number
-  if (isA(passwordLength)) {
+  passwordLength = parseInt(passwordLength);
+
+  if (isNaN(passwordLength) === true) {
+    alert('Password length must be provided as a number');
+  }
+  else {
     enteredNumber = true;
   }
 
-  // Requires user to choose new input until number is chosen
+  // // Requires user to choose new input until number is chosen
   while (enteredNumber === false) {
     passwordLength = prompt("Please enter a number");
-    (passwordLength.includes(numberArray))
+    passwordLength = parseInt(passwordLength);
 
-    if (isNaN(passwordLength))  {
+    if (isNaN(passwordLength) === true) {
+      alert('Password length must be provided as a number');
+    }
+    else {
       enteredNumber = true;
     }
   }
