@@ -68,6 +68,24 @@ function getLength() {
   // Create prompt to ask user how long they want password
   passwordLength = prompt("How many characters would you like your password to be?");
 
+  // Variable that assumes user input is not a number until program confirms in next step
+  var enteredNumber = false;
+
+  // Ensures user entered a number
+  if (isA(passwordLength)) {
+    enteredNumber = true;
+  }
+
+  // Requires user to choose new input until number is chosen
+  while (enteredNumber === false) {
+    passwordLength = prompt("Please enter a number");
+    (passwordLength.includes(numberArray))
+
+    if (isNaN(passwordLength))  {
+      enteredNumber = true;
+    }
+  }
+
   // Validates that password is adequate length
   if ((passwordLength < 8) || (passwordLength > 128)) {
     var longEnough = false;
